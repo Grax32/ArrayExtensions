@@ -7,6 +7,13 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>1.0.1</Version>
     <Authors>grax</Authors>
+    <Description>Lightning fast array fill extension method.</Description>
+    <PackageProjectUrl>https://www.grax.com/ArrayExtensions/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Grax32/ArrayExtensions</RepositoryUrl>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\docs\index.md" Link="documentation-index.md" />
+  </ItemGroup>
 
 </Project>
