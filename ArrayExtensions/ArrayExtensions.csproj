@@ -5,6 +5,8 @@
     <AssemblyName>Grax.ArrayExtensions</AssemblyName>
     <RootNamespace>Grax.Extensions</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.1</Version>
+    <Authors>grax</Authors>
   </PropertyGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-using Grax;
+using Grax.Extensions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 
