@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Grax
+namespace Grax.Extensions
 {
     public static class ArrayExtensions
     {

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Grax.ArrayExtensions</AssemblyName>
-    <RootNamespace>Grax.ArrayExtensions</RootNamespace>
+    <RootNamespace>Grax.Extensions</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
