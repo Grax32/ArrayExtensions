@@ -5,7 +5,7 @@
     <AssemblyName>Grax.ArrayExtensions</AssemblyName>
     <RootNamespace>Grax.Extensions</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Authors>grax</Authors>
     <Description>Lightning fast array fill extension method.</Description>
     <PackageProjectUrl>https://www.grax.com/ArrayExtensions/</PackageProjectUrl>
