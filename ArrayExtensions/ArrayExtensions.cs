@@ -1,32 +1,73 @@
 ﻿using System;
 
-namespace Grax.Extensions
+namespace Grax32.Extensions
 {
     public static class ArrayExtensions
     {
-        public static void Fill<T>(this T[] destinationArray, params T[] value)
+        public static void Fill<T>(this T[] destinationArray, T value)
         {
             if (destinationArray == null)
             {
                 throw new ArgumentNullException(nameof(destinationArray));
             }
 
-            if (value.Length > destinationArray.Length)
+            destinationArray[0] = value;
+            FillInternal(destinationArray, 1);
+        }
+
+        public static void Fill<T>(this T[] destinationArray, T[] values)
+        {
+            if (destinationArray == null)
             {
-                throw new ArgumentException("Length of value array must not be more than length of destination");
+                throw new ArgumentNullException(nameof(destinationArray));
             }
 
-            Array.Copy(value, destinationArray, value.Length);
+            var copyLength = values.Length;
+            var destinationArrayLength = destinationArray.Length;
 
-            var copyLength = value.Length;
-            var destinationArrayHalfLength = destinationArray.Length / 2;
+            if (copyLength == 0)
+            {
+                throw new ArgumentException("Parameter must contain at least one value.", nameof(values));
+            }
 
+            if (copyLength > destinationArrayLength)
+            {
+                // value to copy is longer than destination,
+                // so fill destination with first part of value
+                Array.Copy(values, destinationArray, destinationArrayLength);
+                return;
+            }
+
+            Array.Copy(values, destinationArray, copyLength);
+
+            FillInternal(destinationArray, copyLength);
+        }
+
+        private static void FillInternal<T>(this T[] destinationArray, int copyLength)
+        {
+            var destinationArrayLength = destinationArray.Length;
+            var destinationArrayHalfLength = destinationArrayLength / 2;
+
+            // looping copy from beginning of array to current position
+            // doubling copy length with each pass
             for (; copyLength < destinationArrayHalfLength; copyLength *= 2)
             {
-                Array.Copy(destinationArray, 0, destinationArray, copyLength, copyLength);
+                Array.Copy(
+                    sourceArray: destinationArray,
+                    sourceIndex: 0,
+                    destinationArray: destinationArray,
+                    destinationIndex: copyLength,
+                    length: copyLength);
             }
 
-            Array.Copy(destinationArray, 0, destinationArray, copyLength, destinationArray.Length - copyLength);
+            // we're past halfway, meaning only a single copy remains
+            // exactly fill remainder of array
+            Array.Copy(
+                sourceArray: destinationArray,
+                sourceIndex: 0,
+                destinationArray: destinationArray,
+                destinationIndex: copyLength,
+                length: destinationArrayLength - copyLength);
         }
     }
 }

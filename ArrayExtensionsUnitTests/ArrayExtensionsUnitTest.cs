@@ -1,5 +1,7 @@
-using Grax.Extensions;
+using Grax32.Extensions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Diagnostics;
 using System.Linq;
 
 namespace ArrayExtensionsUnitTests
@@ -40,6 +42,16 @@ namespace ArrayExtensionsUnitTests
 
                 Assert.AreEqual(i, myArray.Last());
             }
+        }
+
+        [TestMethod]
+        public void ArrayFillNoParam()
+        {
+            var targetArray = new byte[25];
+            var paramArray = new byte[0];
+
+            var ex = Assert.ThrowsException<ArgumentException>(() => targetArray.Fill(paramArray));
+            Assert.AreEqual("values", ex.ParamName);
         }
 
         [TestMethod]

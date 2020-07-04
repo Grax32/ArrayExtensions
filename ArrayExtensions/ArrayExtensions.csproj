@@ -10,6 +10,7 @@
     <Description>Lightning fast array fill extension method.</Description>
     <PackageProjectUrl>https://www.grax.com/ArrayExtensions/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Grax32/ArrayExtensions</RepositoryUrl>
+    <Configurations>Debug;Release;PerfTest</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
